@@ -3,29 +3,17 @@ Flattened Android `PagedListAdapter` for speedy adaptation.
 
 ## Gradle
 ```gradle
-implementation "com.geniewits.pagedlambdalist:paged-lambda-list:1.0.0"
-```
-
-## Exposed Functions
-```kotlin
-/*
- * Chainable mapping of item to RecyclerView.ViewHolder.
- *
- * match    return TRUE if this is the item to map to the following RecyclerView.ViewHolder.
- * create   return a new RecyclerView.Holder for the matched item.
- * bind     bind the item to the created RecyclerView.ViewHolder.
- */
-map(
-    match:  (item: T) -> Boolean = { true },
-    create: (parent: ViewGroup) -> RecyclerView.ViewHolder,
-    bind:   (holder: RecyclerView.ViewHolder, item: T) -> Unit
-): PagedLambdaAdapter<T>
+implementation "com.geniewits.pagedlambdalist:paged-lambda-list:1.1.0"
 ```
 
 ## Initialization
-Same as how we initialize a `PagedListAdapter`, a `DiffUtil.ItemCallback<T>` implementation is required.
+Same as how we initialize a `PagedListAdapter` and `PagingDataAdapter`, a `DiffUtil.ItemCallback<T>` implementation is required.
 ```kotlin
 val adapter = PagedLambdaAdapter<Any>(differ)
+```
+or
+```kotlin
+val adapter = PagingLambdaAdapter<Any>(differ)
 ```
 
 ## Mapping
