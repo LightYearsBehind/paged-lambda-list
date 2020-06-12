@@ -61,7 +61,7 @@ bintray {
         setLicenses("MIT")
         vcsUrl="https://github.com/LightYearsBehind/paged-lambda-list.git"
         version.apply {
-            name = "1.0.0"
+            name = "1.1.0"
             desc = "Paged Lambda List 1.1.0"
             released = Date().toString()
             vcsTag = "1.1.0"
