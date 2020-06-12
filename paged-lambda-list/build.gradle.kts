@@ -15,8 +15,8 @@ android {
     defaultConfig {
         minSdkVersion(21)
         targetSdkVersion(29)
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "1.1.0"
 
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -24,14 +24,17 @@ android {
     buildTypes {
         named("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 }
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.3.72")
-    implementation("androidx.paging:paging-runtime:2.1.2")
+    implementation("androidx.paging:paging-runtime:3.0.0-alpha01")
 }
 
 tasks.register("sourcesJar", Jar::class) {
@@ -59,9 +62,9 @@ bintray {
         vcsUrl="https://github.com/LightYearsBehind/paged-lambda-list.git"
         version.apply {
             name = "1.0.0"
-            desc = "Paged Lambda List 1.0.0"
+            desc = "Paged Lambda List 1.1.0"
             released = Date().toString()
-            vcsTag = "1.0.0"
+            vcsTag = "1.1.0"
         }
     }
 }
@@ -75,7 +78,7 @@ afterEvaluate {
 
                 groupId = "com.geniewits.pagedlambdalist"
                 artifactId = "paged-lambda-list"
-                version = "1.0.0"
+                version = "1.1.0"
             }
         }
     }

@@ -9,31 +9,30 @@
 package com.geniewits.pagedlambdalist
 
 import android.view.ViewGroup
-import androidx.paging.PagedListAdapter
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * Extending on {@see PagedListAdapter} to allow mapping of item to
+ * Extending on {@see PagingDataAdapter} to allow mapping of item to
  * {@see RecyclerView.ViewHolder} and binding to it through lambda functions.
  *
  * @author  Daniel Tan
  * @version 1.1.0
- * @since   1.0.0
+ * @since   1.0.1
  */
-@Suppress("DEPRECATION")
-open class PagedLambdaAdapter<T: Any>(
+class PagingLambdaAdapter<T: Any>(
     differ: DiffUtil.ItemCallback<T>
-) : PagedListAdapter<T, RecyclerView.ViewHolder>(
+) : PagingDataAdapter<T, RecyclerView.ViewHolder>(
     differ
-), ViewMapper<T, PagedLambdaAdapter<T>> {
+), ViewMapper<T, PagingLambdaAdapter<T>> {
     private val viewDelegateManager = ViewDelegateManager<T>()
 
     override fun map(
         match: (item: T) -> Boolean,
         create: (parent: ViewGroup) -> RecyclerView.ViewHolder,
         bind: (holder: RecyclerView.ViewHolder, item: T) -> Unit
-    ): PagedLambdaAdapter<T> {
+    ): PagingLambdaAdapter<T> {
         viewDelegateManager.add(match, create, bind)
         return this
     }
